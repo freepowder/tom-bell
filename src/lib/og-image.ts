@@ -1,9 +1,8 @@
-import { config } from "@/config";
 import { createHmac } from "crypto";
 import urlJoin from "url-join";
 
 // Secret is used for signing and verifying the url to prevent misuse of your service to generate images for others
-const secret = config.ogImageSecret;
+const secret = 'wqreqw';
 
 export interface OpenGraphImageParams {
   title: string;
@@ -42,5 +41,5 @@ export const signOgImageUrl = (param: OpenGraphImageParams) => {
   }
   const { signature } = signOgImageParams(param);
   queryParams.append("s", signature);
-  return urlJoin(config.baseUrl, `/api/og-image/?${queryParams.toString()}`);
+  return urlJoin('', `/api/og-image/?${queryParams.toString()}`);
 };

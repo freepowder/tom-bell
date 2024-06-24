@@ -6,7 +6,6 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { config } from "@/config";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -18,7 +17,7 @@ interface MenuItem {
   openInNewTab?: boolean;
 }
 const menuItems: MenuItem[] = [
-  { name: "Blog", href: "/" },
+  { name: "Videos", href: "/" },
   { name: "About", href: "/about" },
 ];
 export const Navigation: FunctionComponent = () => {
@@ -33,7 +32,7 @@ export const Navigation: FunctionComponent = () => {
               href={item.href}
               target={item.openInNewTab ? "_blank" : "_self"}
               className={cn(
-                "hover:text-gray-900",
+                "hover:text-gray-300",
                 pathname === item.href && "font-semibold"
               )}
             >
@@ -77,7 +76,7 @@ export const Header: FunctionComponent = () => {
     <section className="flex items-center justify-between mt-8 md:mt-16 mb-12">
       <Link href="/">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
-          {config.blog.name}
+          TOM WIERZBIANSKI
         </h1>
       </Link>
       <Navigation />

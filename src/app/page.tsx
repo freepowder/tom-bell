@@ -1,24 +1,30 @@
-import { BlogPostsPreview } from "@/components/BlogPostPreview";
-import { BlogPostsPagination } from "@/components/BlogPostsPagination";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { wisp } from "@/lib/wisp";
+import {BlogPostsPreview} from "@/components/BlogPostPreview";
+import {Footer} from "@/components/Footer";
+import {Header} from "@/components/Header";
+import {HERO_VIDEO, VIDEOS} from "@/lib/data";
+import Social from "@/components/ui/social";
 
 const Page = async ({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
+                        searchParams,
+                    }: {
+    searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const page = searchParams.page ? parseInt(searchParams.page as string) : 1;
-  const result = await wisp.getPosts({ limit: 6, page });
-  return (
-    <div className="container mx-auto px-5 mb-10">
-      <Header />
-      <BlogPostsPreview posts={result.posts} />
-      <BlogPostsPagination pagination={result.pagination} />
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="container mx-auto px-5 mb-10">
+            <Header/>
+            <div className=" mx-auto lg:mt-20 break-words">
+                <h1 className={'text-4xl font-bold mb-10'}>{HERO_VIDEO.title}</h1>
+
+                <div className="aspect-[16/9] relative">
+                    <iframe className="w-full aspect-video block mx-auto rounded-md object-cover"
+                            src={HERO_VIDEO.url}></iframe>
+                </div>
+            </div>
+            <BlogPostsPreview videos={VIDEOS}/>
+            <Social/>
+            <Footer/>
+        </div>
+    );
 };
 
 export default Page;

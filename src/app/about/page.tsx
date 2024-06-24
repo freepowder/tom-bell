@@ -1,48 +1,30 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { config } from "@/config";
-import { signOgImageUrl } from "@/lib/og-image";
 import Markdown from "react-markdown";
+import Social from "@/components/ui/social";
 
 const content = `# About Me
 
-![Samantha](https://imagedelivery.net/lLmNeOP7HXG0OqaG97wimw/clvlugru90000o4g8ahxp069s/db7abbe3-aa5c-433e-a16d-cbf137d1c9e5.png/public)
+![Samantha](/images/about.jpg)
 
-Hey there! I'm Samantha, a 28-year-old former corporate warrior who decided to ditch the 9-to-5 grind and embark on an adventure of a lifetime. After years of hustling in a high-pressure job, I realized that life is too short to be stuck in an office, staring at spreadsheets all day.
+Tomasz Wierzbianski is a documentary filmmaker and director of photography. Originally from Poland, he made London
+his new home, where he graduated from Westminster University (Interactive Multimedia MSc) and used this experience
+to further his education, shooting indie movies including "Alberto Goes to Rio"(2014), "Lolly in Marseille"
+(2015), and "Joyeux Noel!" (2016). He worked with the Oscar-winning art director Tim Yip on his latest movie "Love
+Infinity" (2019). He also shot a documentary about the early education system in Finland "Childhood Elsewhere"
+(2019) for the Chinese production company Insight Studios HK, directed by Zhou Yijun. The movie was hailed as one
+of the best documentaries of 2019 by Chinese Central Television. Being a free spirit at heart and having a great
+eye for the cinematography allowed him to make documentaries and business editorials across countries and
+continents for the BBC and The Financial Times. In his works, Tom always tries to push the boundaries of
+documentary filmmaking to the next level. His personal look on life being an adventure that needs to be embraced
+is reflected in his latest film "Ley Da Vida"(2020).
 
-So I took a leap of faith, quit my cushy job in Singapore, and decided to see the world on my own terms. No more stuffy meetings or rigid schedules – just me, my backpack, and an open road ahead.
+## email 
+[tombell@bellotheque.com](tombell@bellotheque.com)
+## phone
+[07881817844](tel:07881817844)
+## social`;
 
-![Samantha](https://imagedelivery.net/lLmNeOP7HXG0OqaG97wimw/clvlugru90000o4g8ahxp069s/6b080e65-2329-4a36-ad5c-0a6af8d9aeb1.png/public)
-
-This blog is where I'll be documenting my travels, sharing my experiences, and hopefully inspiring others to follow their wanderlust. From trekking through remote villages to savoring local cuisines, I'm on a mission to immerse myself in different cultures and create memories that will last a lifetime.
-
-But this journey isn't just about checking off destinations from a bucket list. It's about self-discovery, personal growth, and finding the courage to live life on my own terms. I'll be honest and raw, sharing the highs and lows, the moments of pure bliss and the inevitable challenges that come with solo travel.
-
-So join me on this adventure, and let's explore the world together! Who knows, maybe my stories will inspire you to take that leap of faith and pursue your own dreams, whatever they may be.
-
-Let's go on an adventure!
-
-Love,
-
-Samantha`;
-
-export async function generateMetadata() {
-  return {
-    title: "About Me",
-    description: "Learn more about Samantha and her travel adventures",
-    openGraph: {
-      title: "About Me",
-      description: "Learn more about Samantha and her travel adventures",
-      images: [
-        signOgImageUrl({
-          title: "Samantha",
-          label: "About Me",
-          brand: config.blog.name,
-        }),
-      ],
-    },
-  };
-}
 
 const Page = async () => {
   return (
@@ -50,6 +32,7 @@ const Page = async () => {
       <Header />
       <div className="prose lg:prose-lg dark:prose-invert m-auto mt-20 mb-10 blog-content">
         <Markdown>{content}</Markdown>
+        <Social/>
       </div>
       <Footer />
     </div>
